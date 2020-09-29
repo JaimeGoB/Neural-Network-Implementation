@@ -14,7 +14,7 @@ X_train, X_test, Y_train, Y_test = data.get_train_test_set()
 
 optimizer = "adagrad"
 activation_function = ['sigmoid', 'tanh']
-epochs = [200]
+epochs = [100, 200]
 
 for activation in activation_function:
     for epoch in epochs:
@@ -25,9 +25,10 @@ for activation in activation_function:
         #getting accuracy
         training_accuracy = training_accuracy_list[-1]
         #getting accuracy for testing set
-        testing_accuracy, y_hat_test = neural_network_builder.test_model(X_test, Y_test)
-        print('Accuracy ' + activation)
+        testing_accuracy = neural_network_builder.test_model(X_test, Y_test)
+        print('Accuracy ' + activation + ' using ' + optimizer + ' with '+ str(epoch) + ' epochs' )
         print(testing_accuracy)
+        print('\n')
         
 ###############################
 # Confusion Matrix Here

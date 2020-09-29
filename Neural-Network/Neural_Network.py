@@ -35,6 +35,7 @@ class Neural_Network:
         
             self.layer1 = self.Activation.tanh(self.bias1 + np.dot(self.input, self.weights1))
             self.y_hat = self.Activation.tanh(self.bias2 + np.dot(self.layer1, self.weights2))
+            self.y_hat = np.absolute(self.y_hat)
             accuracy = 1 - self.loss_function(self.y_hat, self.y)
         
         elif(self.activation_function == 'relu'): 
@@ -68,13 +69,14 @@ class Neural_Network:
             
              self.layer1 = self.Activation.tanh(np.dot(input_vector, self.weights1))
              y_hat_test = self.Activation.tanh(np.dot(self.layer1, self.weights2))
+             y_hat_test = np.absolute(y_hat_test)
              accuracy = 1 - self.loss_function(y_hat_test, y)
-        
+
         elif(self.activation_function == 'relu'): 
             
              self.layer1 = self.Activation.relu(np.dot(input_vector, self.weights1))
              y_hat_test = self.Activation.relu(np.dot(self.layer1, self.weights2))
              accuracy = 1 - self.loss_function(y_hat_test, y)
         
-        return accuracy, y_hat_test
+        return accuracy
     

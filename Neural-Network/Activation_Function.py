@@ -17,7 +17,7 @@ class Activation_Function:
     
 
     def relu(self,x):
-        return np.minimum(1.0, x)
+        return np.max(0.0, x)
     
     def relu_derivative(self,x):
         x[x<=0] = 0

@@ -20,8 +20,8 @@ class Optimizer:
             derivative_weights1 = np.dot(input.T,  (np.dot(2*(y - y_hat) * self.Activation.sigmoid_derivative(y_hat), weights2.T) * self.Activation.sigmoid_derivative(layer1))) + 0.01
         elif(self.activation_function == 'tanh'): 
             #Computing gradient/derivative of weights2 with sigmoid derivative
-            derivative_weights2 = np.dot(layer1.T, (2*(y - y_hat) * self.Activation.tanh_derivative(y_hat))) + 0.01
-            derivative_weights1 = np.dot(input.T,  (np.dot(2*(y - y_hat) * self.Activation.tanh_derivative(y_hat), weights2.T) * self.Activation.tanh_derivative(layer1))) + 0.01
+            derivative_weights2 = np.dot(layer1.T, (2*(y - y_hat) * self.Activation.tanh_derivative(y_hat))) + 0.1
+            derivative_weights1 = np.dot(input.T,  (np.dot(2*(y - y_hat) * self.Activation.tanh_derivative(y_hat), weights2.T) * self.Activation.tanh_derivative(layer1))) + 0.1
         elif(self.activation_function == 'relu'): 
             #Computing gradient/derivative of weights2 with sigmoid derivative
             derivative_weights2 = np.dot(layer1.T, (2*(y - y_hat) * self.Activation.relu_derivative(y_hat)))
