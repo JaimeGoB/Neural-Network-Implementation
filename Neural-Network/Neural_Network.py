@@ -17,7 +17,7 @@ class Neural_Network:
         self.y          = Y_train
         self.output     = np.zeros(Y_train.shape)
         self.optimizer = optimizer #string
-        self.Optimizer = Optimizer() #object
+        self.Optimizer = Optimizer(activation_function) #object
         self.activation_function = activation_function #string 
         self.Activation = Activation_Function()        #object
 
@@ -25,9 +25,22 @@ class Neural_Network:
     def feedforward(self):
       
         #deal with appropiate activation
-        if(self.activation_function == 'sigmoid'): 
+        if(self.activation_function == 'sigmoid'):
+            
             self.layer1 = self.Activation.sigmoid(self.bias1 + np.dot(self.input, self.weights1))
             self.y_hat = self.Activation.sigmoid(self.bias2 + np.dot(self.layer1, self.weights2))
+            accuracy = 1 - self.loss_function(self.y_hat, self.y)
+
+        elif(self.activation_function == 'tanh'):
+        
+            self.layer1 = self.Activation.tanh(self.bias1 + np.dot(self.input, self.weights1))
+            self.y_hat = self.Activation.tanh(self.bias2 + np.dot(self.layer1, self.weights2))
+            accuracy = 1 - self.loss_function(self.y_hat, self.y)
+        
+        elif(self.activation_function == 'relu'): 
+            
+            self.layer1 = self.Activation.relu(self.bias1 + np.dot(self.input, self.weights1))
+            self.y_hat = self.Activation.relu(self.bias2 + np.dot(self.layer1, self.weights2))
             accuracy = 1 - self.loss_function(self.y_hat, self.y)
 
         return accuracy
@@ -46,10 +59,22 @@ class Neural_Network:
         
         #deal with appropiate activation
         if(self.activation_function == 'sigmoid'): 
-             self.layer1 = self.Activation.sigmoid(np.dot(input_vector, self.weights1))
-             y_hat = self.Activation.sigmoid(np.dot(self.layer1, self.weights2))
-             accuracy = 1 - self.loss_function(y_hat, y)
-
+ 
+            self.layer1 = self.Activation.sigmoid(np.dot(input_vector, self.weights1))
+            y_hat_test = self.Activation.sigmoid(np.dot(self.layer1, self.weights2))
+            accuracy = 1 - self.loss_function(y_hat_test, y)
         
-        return accuracy
+        elif(self.activation_function == 'tanh'):
+            
+             self.layer1 = self.Activation.tanh(np.dot(input_vector, self.weights1))
+             y_hat_test = self.Activation.tanh(np.dot(self.layer1, self.weights2))
+             accuracy = 1 - self.loss_function(y_hat_test, y)
+        
+        elif(self.activation_function == 'relu'): 
+            
+             self.layer1 = self.Activation.relu(np.dot(input_vector, self.weights1))
+             y_hat_test = self.Activation.relu(np.dot(self.layer1, self.weights2))
+             accuracy = 1 - self.loss_function(y_hat_test, y)
+        
+        return accuracy, y_hat_test
     

@@ -4,9 +4,9 @@ import pandas as pd
 
 
 class Optimizer:
-    def __init__(self):
+    def __init__(self, activation_function):
         self.Activation = Activation_Function() #object
-
+        self.activation_function = activation_function
         
     def Adaptive_Gradient_Descent(self,activation_function, weights1, bias1, weights2, bias2, layer1, y_hat, y, input, learning_rate = 1e-2, epsilon = 1e-6):
 
@@ -14,13 +14,19 @@ class Optimizer:
         ## Computing gradients needed for 
         ## Adaptive Gradient Descent
         #################################
-        if(activation_function == 'sigmoid'): 
+        if(self.activation_function == 'sigmoid'): 
             #Computing gradient/derivative of weights2 with sigmoid derivative
-            derivative_weights2 = np.dot(layer1.T, (2*(y - y_hat) * self.Activation.sigmoid_derivative(y_hat)))
-            derivative_weights1 = np.dot(input.T,  (np.dot(2*(y - y_hat) * self.Activation.sigmoid_derivative(y_hat), weights2.T) * self.Activation.sigmoid_derivative(layer1)))
-        # else if(self.activation_function == 'tanh'): 
-        # else if(self.activation_function == 'relu'): 
-            
+            derivative_weights2 = np.dot(layer1.T, (2*(y - y_hat) * self.Activation.sigmoid_derivative(y_hat))) + 0.01
+            derivative_weights1 = np.dot(input.T,  (np.dot(2*(y - y_hat) * self.Activation.sigmoid_derivative(y_hat), weights2.T) * self.Activation.sigmoid_derivative(layer1))) + 0.01
+        elif(self.activation_function == 'tanh'): 
+            #Computing gradient/derivative of weights2 with sigmoid derivative
+            derivative_weights2 = np.dot(layer1.T, (2*(y - y_hat) * self.Activation.tanh_derivative(y_hat))) + 0.01
+            derivative_weights1 = np.dot(input.T,  (np.dot(2*(y - y_hat) * self.Activation.tanh_derivative(y_hat), weights2.T) * self.Activation.tanh_derivative(layer1))) + 0.01
+        elif(self.activation_function == 'relu'): 
+            #Computing gradient/derivative of weights2 with sigmoid derivative
+            derivative_weights2 = np.dot(layer1.T, (2*(y - y_hat) * self.Activation.relu_derivative(y_hat)))
+            derivative_weights1 = np.dot(input.T,  (np.dot(2*(y - y_hat) * self.Activation.relu_derivative(y_hat), weights2.T) * self.Activation.relu_derivative(layer1)))
+
         #################################
         ## UPDATE THE WEIGHTS IN
         ## INPUT LAYER AND HIDDEN LAYER
