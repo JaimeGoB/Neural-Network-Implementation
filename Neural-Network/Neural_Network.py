@@ -29,22 +29,25 @@ class Neural_Network:
             
             self.layer1 = self.Activation.sigmoid(self.bias1 + np.dot(self.input, self.weights1))
             self.y_hat = self.Activation.sigmoid(self.bias2 + np.dot(self.layer1, self.weights2))
-            accuracy = 1 - self.loss_function(self.y_hat, self.y)
+            error = self.loss_function(self.y_hat, self.y)
+            accuracy = 1 - error
 
         elif(self.activation_function == 'tanh'):
         
             self.layer1 = self.Activation.tanh(self.bias1 + np.dot(self.input, self.weights1))
             self.y_hat = self.Activation.tanh(self.bias2 + np.dot(self.layer1, self.weights2))
             self.y_hat = np.absolute(self.y_hat)
-            accuracy = 1 - self.loss_function(self.y_hat, self.y)
+            error = self.loss_function(self.y_hat, self.y)
+            accuracy = 1 - error
         
         elif(self.activation_function == 'relu'): 
             
             self.layer1 = self.Activation.relu(self.bias1 + np.dot(self.input, self.weights1))
             self.y_hat = self.Activation.relu(self.bias2 + np.dot(self.layer1, self.weights2))
-            accuracy = 1 - self.loss_function(self.y_hat, self.y)
-
-        return accuracy
+            error = self.loss_function(self.y_hat, self.y)
+            accuracy = 1 - error
+            
+        return error, accuracy
 
     
     #Calculating Binary Cross Entropy
