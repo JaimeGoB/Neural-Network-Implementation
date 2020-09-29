@@ -14,26 +14,23 @@ X_train, X_test, Y_train, Y_test = data.get_train_test_set()
 
 optimizer = "adagrad"
 activation_function = ["sigmoid"]
-epochs = [200]
+epochs = [100]
 
 for activation in activation_function:
     for epoch in epochs:
+        #Create NN handler to manage NN
         neural_network_builder = Neural_Network_Builder(X_train, Y_train, activation, optimizer, epoch)
-        training_accuracy = neural_network_builder.train_model()
+        #Training the model
+        training_accuracy_list = neural_network_builder.train_model()
+        #getting accuracy
+        training_accuracy = training_accuracy_list[-1]
+        #getting accuracy for testing set
+        testing_accuracy = neural_network_builder.test_model(X_test, Y_test)
         
-print('training error')
-training_accuracy[199]
-print('test error')
-neural_network_builder.test_model(X_test, Y_test)
+        
 
 
 
 
-# X = np.array([[0,0,1],
-#               [0,1,1],
-#               [1,0,1],
-#               [1,1,1]])
-# len(X)
-# y = np.array([[0],[1],[1],[0]])
-# nn = NeuralNetwork(X,y)
+
 
