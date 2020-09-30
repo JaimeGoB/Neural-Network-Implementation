@@ -53,9 +53,9 @@ W1ij are the weights 1 between input layer and hidden layer.
 
 W2ij are the weights 2 between output layer and hidden layer.
 
-y which is a vector of size [57 x 1] containing actual values.
+y which is a vector of size [N x 1] containing actual values.
 
-y_hat is a vector of size [57 x 1] containing predicted values for target(y).
+y_hat is a vector of size [N x 1] containing predicted values for target(y).
 
 ![Neural Network Flow](https://github.com/JaimeGoB/Neural-Network-Implementation/blob/master/images/nn-architecture.png)
 
