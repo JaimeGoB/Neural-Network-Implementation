@@ -22,7 +22,7 @@ pandas, numpy, matplotlib.pyplot, seaborn
 
 3) Once you have open the 'Neural-Network' folder and have deleted all .txt files here. We can proceed to run the code.
 
-** Only open driver.py. DO NOT OPEN ANY OTHER FILE. DRIVER.PY CONTROLS ALL FILES. PLEASE SEE CLASS DIAGRAM BELOW **
+**Only open driver.py. DO NOT OPEN ANY OTHER FILE. DRIVER.PY CONTROLS ALL FILES. PLEASE SEE CLASS DIAGRAM BELOW**
 
 - Option 1: Click play button on Sypder IDE. This button will run the entire file.
 
