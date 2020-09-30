@@ -25,7 +25,7 @@ class Optimizer:
         elif(self.activation_function == 'relu'): 
             #Computing gradient/derivative of weights2 with sigmoid derivative
             derivative_weights2 = np.dot(layer1.T, (2*(y - y_hat) * self.Activation.relu_derivative(y_hat)))
-            derivative_weights1 = np.dot(input.T,  (np.dot(2*(y - y_hat) * self.Activation.relu_derivative(y_hat), weights2.T) * self.Activation.relu_derivative(layer1)))
+            derivative_weights1 = np.dot(input.T,  (np.dot(2*(y - y_hat) * self.Activation.relu_derivative(y_hat), weights2.T) * self.Activation.relu_derivative(layer1))) + 0.1
 
         #################################
         ## UPDATE THE WEIGHTS IN

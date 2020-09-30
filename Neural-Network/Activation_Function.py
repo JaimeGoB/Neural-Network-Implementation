@@ -15,9 +15,8 @@ class Activation_Function:
     def tanh_derivative(self,x):
         return 1.0 - np.tanh(x)**2
     
-
     def relu(self,x):
-        return np.max(0.0, x)
+        return np.maximum(0.0, x)
     
     def relu_derivative(self,x):
         x[x<=0] = 0

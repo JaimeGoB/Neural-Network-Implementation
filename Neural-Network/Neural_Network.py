@@ -3,6 +3,7 @@ from Optimizer import Optimizer
 import numpy as np
 import matplotlib.pyplot as plt
 import sklearn.datasets as datasets
+import copy
 
 class Neural_Network:
         
@@ -44,11 +45,19 @@ class Neural_Network:
             
             self.layer1 = self.Activation.relu(self.bias1 + np.dot(self.input, self.weights1))
             self.y_hat = self.Activation.relu(self.bias2 + np.dot(self.layer1, self.weights2))
-            error = self.loss_function(self.y_hat, self.y)
+            #Normalizing y_hat before calculating loss
+            y_hat_normalized = self.y_hat
+            normalization_sum = np.linalg.norm(y_hat_normalized)
+            y_hat_normalized = y_hat_normalized/ normalization_sum
+            #calculating loss with regularization term
+            error = self.loss_function_relu(y_hat_normalized, self.y)
             accuracy = 1 - error
             
         return error, accuracy
 
+    #Calculating Binary Cross Entropy - USING REGULARIZATION TERM
+    def loss_function_relu(self, y_hat, y):
+        return float(-np.mean(y*np.log(y_hat+1e-1)))
     
     #Calculating Binary Cross Entropy
     def loss_function(self, y_hat, y):
@@ -79,7 +88,8 @@ class Neural_Network:
             
              self.layer1 = self.Activation.relu(np.dot(input_vector, self.weights1))
              y_hat_test = self.Activation.relu(np.dot(self.layer1, self.weights2))
-             accuracy = 1 - self.loss_function(y_hat_test, y)
+             accuracy = 1 - self.loss_function_relu(y_hat_test, y)
+
         
         return accuracy
     

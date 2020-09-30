@@ -1,5 +1,7 @@
 Testing_Accuracy,Activation_Function,Optimzer,Epochs
-0.9114426600210361,sigmoid,adagrad,100
-0.9916865939694094,sigmoid,adagrad,200
-0.9469353820627899,tanh,adagrad,100
-0.9999191018628995,tanh,adagrad,200
+0.8596753813198387,sigmoid,adagrad,20
+0.9674305181279994,sigmoid,adagrad,100
+0.9998918458439932,sigmoid,adagrad,500
+0.9982044509678503,tanh,adagrad,20
+0.9974178406922231,tanh,adagrad,100
+0.9999994033718931,tanh,adagrad,500
