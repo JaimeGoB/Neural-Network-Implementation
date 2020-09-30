@@ -1,11 +1,11 @@
 # Section 0 - How to run the code
 #### Libraries Pre-Requisites:
 
-pandas, numpy, matplotlib.pyplot, seaborn
++ pandas, numpy, matplotlib.pyplot, seaborn
 
-#### The files cannot be run through command line.
++ #### The files cannot be run through command line.
 
-#### They have to be run in Spyer IDE from Anaconda.
++ #### They have to be run in Spyer IDE from Anaconda.
 
 ### STEPS:
 
