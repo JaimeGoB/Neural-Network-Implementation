@@ -3,7 +3,7 @@
  + **Neural-Network-Implementation**
  Has the source code.
  
- + **Report **
+ + **Report**
  Contains the report for our Neural Network.
  
  #### Libraries Pre-Requisites:
