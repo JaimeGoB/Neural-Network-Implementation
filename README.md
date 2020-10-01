@@ -1,3 +1,37 @@
+# Section 0 - How to run the code
+ #### Libraries Pre-Requisites:
+
+ + pandas, numpy, matplotlib.pyplot, seaborn
+
+ + #### The files cannot be run through command line.
+
+ + #### They have to be run in Spyer IDE from Anaconda.
+
+ ### STEPS:
+
+ 1) Open 'Neural-Network' folder using **Sypder IDE from Anaconda**
+ **Maker sure the following files are inside of the folder.**
+ - Activation_Function.py
+ - driver.py
+ - Neural_Network_Builder.py
+ - Neural_Network.py
+ - Optimizer.py
+ - Preprocessing.py
+
+ 2) Read the ‘accuracy_for_different_parameters.csv’ to see proof of the use of different parameters then **Delete ‘accuracy_for_different_parameters.csv’.**
+
+ 3) Once you have open the 'Neural-Network' folder in Sypder and have deleted all .txt files here. We can proceed to run the code.
+
+ **Only open driver.py. DO NOT OPEN ANY OTHER FILE. DRIVER.PY CONTROLS ALL FILES. PLEASE SEE CLASS DIAGRAM BELOW**
+
+ - Option 1: Click play button on Sypder IDE. This button will run the entire file.
+
+ - Option 2: Select Lines 1-60 from driver.py and hit run.
+
+ A ‘accuracy_for_different_parameters.csv’ file be created at the end of running driver.py
+
+ **It is the the output of the neural network in a tabular format using different parameters.**
+
 # Neural-Network-Implementation
 
 ## The Dataset:
