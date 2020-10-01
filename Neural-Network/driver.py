@@ -22,7 +22,7 @@ X_train, X_test, Y_train, Y_test = data.get_train_test_set()
 # with different parameters
 ###############################
 optimizer = "adagrad"
-activation_function = ['sigmoid','tanh']
+activation_function = ['sigmoid','tanh','relu']
 epochs = [20,100, 500]
 accuracy_for_different_parameters = pd.DataFrame(columns=['Testing_Accuracy','Activation_Function','Optimzer', 'Epochs'])
 
